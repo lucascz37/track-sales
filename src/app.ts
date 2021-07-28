@@ -1,7 +1,7 @@
 import express, { Express, Router } from 'express';
 import helmet from 'helmet';
-import OperationRouter from './Router/OperationRouter';
-import OperationTypeRouter from './Router/OperationTypeRouter';
+import OperationRouter from './router/OperationRouter';
+import OperationTypeRouter from './router/OperationTypeRouter';
 
 export default class Application {
 	server: Express;
