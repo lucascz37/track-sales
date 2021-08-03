@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Operation from '../entity/Operation';
+import OperationService from '../service/OperationService';
 import BaseController from './BaseController';
 
 class OperationController extends BaseController<Operation> {
@@ -11,4 +12,4 @@ class OperationController extends BaseController<Operation> {
 	}
 }
 
-export default new OperationController(Operation);
+export default new OperationController(OperationService);

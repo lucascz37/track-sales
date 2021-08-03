@@ -4,8 +4,8 @@ import BaseService from '../service/BaseService';
 export default class BaseController<T> {
 	service: BaseService<T>;
 
-	constructor(service: new () => T) {
-		this.service = new BaseService<T>(service);
+	constructor(service: BaseService<T>) {
+		this.service = service;
 	}
 
 	async find(req: Request, resp: Response): Promise<void> {
