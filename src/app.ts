@@ -1,5 +1,6 @@
 import express, { Express, Router } from 'express';
 import helmet from 'helmet';
+import ItemRouter from './router/ItemRouter';
 import OperationRouter from './router/OperationRouter';
 import OperationTypeRouter from './router/OperationTypeRouter';
 
@@ -19,6 +20,7 @@ export default class Application {
 	addRouters(): void {
 		this.addRouter('/operation', OperationRouter);
 		this.addRouter('/operationType', OperationTypeRouter);
+		this.addRouter('/item', ItemRouter);
 	}
 
 	addRouter(path: string, router: Router): void {

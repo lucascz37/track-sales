@@ -1,10 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export default class OperationType {
+export default class Item {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({ length: 50, nullable: false, unique: true })
-	type: string;
+	@Column({ length: 50, nullable: false })
+	name: string;
 }
