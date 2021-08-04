@@ -31,11 +31,20 @@ export default class BaseController<T> {
 		const object = await this.service.findById(id);
 
 		if (object !== undefined) {
-			const result = await this.service.deleteById(id);
-			// eslint-disable-next-line no-unused-expressions
-			result.affected === 1
-				? resp.status(204).send()
-				: resp.status(404).json({ message: 'Could not be deleted' });
+			this.service
+				.deleteById(id)
+				.then(result => {
+					if (result.affected === 1) {
+						resp.status(204).send();
+					} else {
+						resp.status(404).json({
+							message: 'Already deleted',
+						});
+					}
+				})
+				.catch(() => {
+					resp.status(409).json({ message: 'Cannot be deleted' });
+				});
 		} else {
 			resp.status(404).json({ message: 'Not Found' });
 		}
