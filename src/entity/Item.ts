@@ -5,6 +5,6 @@ export default class Item {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({ length: 50, nullable: false })
+	@Column({ length: 50, nullable: false, unique: true })
 	name: string;
 }

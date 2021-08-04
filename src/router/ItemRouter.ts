@@ -6,4 +6,4 @@ const router = Router();
 export default router
 	.get('/', (req, resp) => ItemController.find(req, resp))
 	.post('/', (req, resp) => ItemController.create(req, resp))
-	.delete('/', (req, resp) => ItemController.delete(req, resp));
+	.delete('/:id', (req, resp) => ItemController.delete(req, resp));
